@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className={classes.Wrapper}>
       <Logo />
-      <Links />
+      <Links isOpen={isOpen} />
       <Hamburger isOpen={isOpen} toggle={toggle} />
     </div>
   );

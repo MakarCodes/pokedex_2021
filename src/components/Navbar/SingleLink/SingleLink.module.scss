@@ -1,7 +1,7 @@
 .ListItem {
   display: block;
   margin-bottom: 1rem;
-  @media (min-width: '425px') {
+  @media (min-width: '768px') {
     margin-bottom: 0;
     margin-right: 2rem;
   }
@@ -9,32 +9,45 @@
 
 .Link {
   display: inline-block;
-  color: rgb(228, 222, 222);
+  color: white;
   cursor: pointer;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
   font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  padding: 0.8rem 0.8rem;
   text-decoration: none;
   text-align: center;
-  padding: 1.2rem 0.8rem;
   position: relative;
   &:hover {
-    color: gold;
+    color: white;
   }
   &::after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: '';
     display: block;
-    height: 2px;
+    height: 1px;
     left: 50%;
     position: absolute;
-    background: gold;
+    background: white;
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
   &:hover:after {
     width: 100%;
     left: 0;
+  }
+  @media (min-width: '768px') {
+    color: #333;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    padding: 1.2rem 0.8rem;
+    &:hover {
+      color: #f38181;
+    }
+    &::after {
+      background: #f38181;
+      height: 2px;
+    }
   }
 }

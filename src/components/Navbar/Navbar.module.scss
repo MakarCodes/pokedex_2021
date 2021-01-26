@@ -4,7 +4,10 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 20px 40px;
-  background-color: #659dbd;
+  padding: 20px;
+  background-color: #95e1d3;
   // background: linear-gradient(90deg, #fff, #6dd5fa, #2980b9);
+  @media (min-width: '1024px') {
+    padding: 20px 40px;
+  }
 }

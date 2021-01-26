@@ -6,14 +6,10 @@
   width: 3rem;
   height: 3rem;
   position: relative;
-  right: 20px;
   z-index: 20;
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
-  @media (min-width: '768px') {
-    display: none;
-  }
   div {
     background-color: white;
     width: 3rem;
@@ -33,21 +29,27 @@
       transform: rotate(0);
     }
   }
+  @media (min-width: '768px') {
+    display: none;
+  }
 }
 
 .HamburgerOpen {
-  position: fixed;
-  div {
-    background-color: #ccc;
-    &:nth-child(1) {
-      transform: rotate(45deg);
-    }
-    &:nth-child(2) {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    &:nth-child(3) {
-      transform: rotate(-45deg);
+  @media (max-width: '768px') {
+    position: fixed;
+    right: 20px;
+    div {
+      background-color: #ccc;
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
     }
   }
 }

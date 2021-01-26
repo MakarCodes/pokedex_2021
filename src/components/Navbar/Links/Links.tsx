@@ -1,9 +1,15 @@
 import SingleLink from '../SingleLink/SingleLink';
 import classes from './Links.module.scss';
 
-const Links = () => {
+interface IProps {
+  isOpen: boolean;
+}
+
+const Links: React.FC<IProps> = ({ isOpen }) => {
   return (
-    <div className={classes.List}>
+    <div
+      className={isOpen ? `${classes.List} ${classes.ListOpen}` : classes.List}
+    >
       <SingleLink path='/' value='Pokedex' />
       <SingleLink path='/mybest' value='MyBest' />
       <SingleLink path='/projectPurpose' value='ProjectPurpose' />

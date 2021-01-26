@@ -3,28 +3,30 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  @media (max-width: '600px') {
+  @media (max-width: '767px') {
     height: 0;
     visibility: hidden;
     opacity: 0;
     flex-direction: column;
     flex-wrap: nowrap;
-    background-color: blue;
+    background-color: #f38181;
     position: fixed;
     right: 0;
     top: 0;
     overflow: hidden;
-    padding-top: 20rem;
     width: 250px;
     justify-content: flex-start;
     z-index: 10;
     transition: all 0.4s ease-in-out;
+    padding-top: 60px;
   }
 }
 
-.List-Open {
-  height: 100vh;
-  visibility: visible;
-  opacity: 1;
-  background-color: blue;
+.ListOpen {
+  @media (max-width: '767px') {
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    background-color: #f38181;
+  }
 }

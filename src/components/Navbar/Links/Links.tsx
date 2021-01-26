@@ -5,9 +5,9 @@ const Links = () => {
   return (
     <div className={classes.List}>
       <SingleLink path='/' value='Pokedex' />
-      <SingleLink path='/' value='MyBest' />
-      <SingleLink path='/' value='Purpose' />
-      <SingleLink path='/' value='Contact' />
+      <SingleLink path='/mybest' value='MyBest' />
+      <SingleLink path='/projectPurpose' value='ProjectPurpose' />
+      <SingleLink path='/contact' value='Contact' />
     </div>
   );
 };

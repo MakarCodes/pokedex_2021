@@ -1,10 +1,11 @@
 import Layout from './components/Layout/Layout';
+import Routes from './components/Routes/Routes';
 
 const App = () => {
   return (
-    <div>
-      <Layout />
-    </div>
+    <Layout>
+      <Routes />
+    </Layout>
   );
 };
 

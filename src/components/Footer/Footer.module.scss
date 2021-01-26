@@ -1,0 +1,67 @@
+.FooterContainer {
+  width: 100%;
+  padding: 2rem;
+  background-color: #fce38a;
+}
+
+.FooterWrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+}
+
+.CopyrightsContainer {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  color: #333;
+  @media (min-width: 425px) {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}
+
+.LinksContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Link {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media (min-width: 425px) {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+  @media (min-width: 768px) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+  &:not(:last-child):after {
+    margin-right: 1rem;
+    padding-left: 1rem;
+    content: '|';
+  }
+}
+
+// export const LinkWrapper = styled.span``;

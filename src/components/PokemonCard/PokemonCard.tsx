@@ -10,8 +10,6 @@ import classes from './PokemonCard.module.scss';
 
 import { TYPE_COLORS } from '../../constans/constans';
 
-import { IPokemon } from '../../store/reducer/pokemonReducer';
-
 interface IProps {
   pokemon: IPokemon;
 }

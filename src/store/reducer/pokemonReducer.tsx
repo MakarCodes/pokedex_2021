@@ -1,15 +1,3 @@
-export interface IPokemon {
-  id: number;
-  name: string;
-  height: number;
-  weight: number;
-  types: string[];
-  sprites: {
-    front_default: string;
-    back_default: string;
-  };
-}
-
 export interface IState {
   pokemons: IPokemon[];
   isLoading: boolean;

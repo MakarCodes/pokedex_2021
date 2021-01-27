@@ -1,4 +1,4 @@
-import { Actions, ActionTypes, IPokemon } from '../reducer/pokemonReducer';
+import { Actions, ActionTypes } from '../reducer/pokemonReducer';
 
 interface IWithUrl {
   url: string;

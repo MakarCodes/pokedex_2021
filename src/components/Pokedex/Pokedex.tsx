@@ -6,6 +6,7 @@ import { URL_ALL_POKEMONS } from '../../constans/constans';
 import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 
 import PokemonCard from '../PokemonCard/PokemonCard';
+import Spinner from '../Spinner/Spinner';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
@@ -20,16 +21,20 @@ const Pokedex = () => {
       }
     };
     fetchPokemons();
-  }, [URL_ALL_POKEMONS]);
+  }, []);
 
   useEffect(() => {
     console.log(pokedexState);
   }, [pokedexState]);
   return (
     <div className={classes.Container}>
-      {pokedexState.pokemons.slice(0, 20).map(pokemon => (
-        <PokemonCard pokemon={pokemon} />
-      ))}
+      {!pokedexState.isLoading ? (
+        pokedexState.pokemons
+          .slice(0, 20)
+          .map(pokemon => <PokemonCard pokemon={pokemon} />)
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

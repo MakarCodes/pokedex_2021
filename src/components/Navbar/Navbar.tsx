@@ -1,18 +1,29 @@
 import Hamburger from './Hamburger/Hamburger';
-import { useState } from 'react';
+import { useLayoutEffect, useState, useRef } from 'react';
 
 import Links from './Links/Links';
 import Logo from './Logo/Logo';
 
 import classes from './Navbar.module.scss';
 
-const Navbar = () => {
+interface IProps {
+  setNavbarHeight: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Navbar: React.FC<IProps> = ({ setNavbarHeight }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const targetRef: React.MutableRefObject<null | HTMLDivElement> = useRef(null);
+  useLayoutEffect(() => {
+    if (targetRef.current) {
+      setNavbarHeight(targetRef.current.offsetHeight);
+    }
+  }, []);
+
   return (
-    <div className={classes.Wrapper}>
+    <div className={classes.Wrapper} ref={targetRef}>
       <Logo />
       <Links isOpen={isOpen} />
       <Hamburger isOpen={isOpen} toggle={toggle} />

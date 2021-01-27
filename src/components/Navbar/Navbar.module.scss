@@ -3,10 +3,11 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   text-align: center;
   padding: 20px;
   background-color: #95e1d3;
-  // background: linear-gradient(90deg, #fff, #6dd5fa, #2980b9);
+  height: 120px;
   @media (min-width: '1024px') {
     padding: 20px 40px;
   }

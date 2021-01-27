@@ -1,8 +1,19 @@
+import { useLayoutEffect, useRef } from 'react';
+
 import classes from './Footer.module.scss';
 
-const Footer = () => {
+interface IProps {
+  setFooterHeight: React.Dispatch<React.SetStateAction<number>>;
+}
+const Footer: React.FC<IProps> = ({ setFooterHeight }) => {
+  const targetRef: React.MutableRefObject<null | HTMLDivElement> = useRef(null);
+  useLayoutEffect(() => {
+    if (targetRef.current) {
+      setFooterHeight(targetRef.current.offsetHeight);
+    }
+  }, []);
   return (
-    <div>
+    <div ref={targetRef}>
       <div className={classes.FooterContainer}>
         <div className={classes.FooterWrapper}>
           <div className={classes.CopyrightsContainer}>Copyright © 2021</div>

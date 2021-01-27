@@ -14,7 +14,7 @@ const Pokedex = () => {
   }, [pokedexState]);
   return (
     <div className={classes.Container}>
-      {pokedexState.pokemons.map(pokemon => (
+      {pokedexState.pokemons.slice(0, 20).map(pokemon => (
         <PokemonCard pokemon={pokemon} />
       ))}
     </div>

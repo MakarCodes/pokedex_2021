@@ -48,10 +48,21 @@ const drawTypes = (types: string[]) => {
     .join('/');
 };
 
+const drawId = (id: number) => {
+  if (id < 10) {
+    return '#00' + id;
+  }
+  if (id >= 10 && id < 100) {
+    return '#0' + id;
+  }
+  return '#' + id;
+};
+
 const PokemonCard: React.FC<IProps> = ({ pokemon }) => {
   const { id, name, height, weight, types, sprites } = pokemon;
   const cardBg = useMemo(() => generateBgDependingOnType(pokemon), [pokemon]);
   const pokemonTypes = useMemo(() => drawTypes(types), [pokemon]);
+  const pokemonId = useMemo(() => drawId(id), [pokemon]);
 
   return (
     <div
@@ -71,7 +82,7 @@ const PokemonCard: React.FC<IProps> = ({ pokemon }) => {
         alt='pokemon-icons'
       />
       <h1 className={classes.PokemonName}>{name}</h1>
-      <p className={classes.PokemonId}>{id}</p>
+      <p className={classes.PokemonId}>{pokemonId}</p>
       <div className={classes.Info}>
         <div className={classes.DetailInfo}>
           <i>

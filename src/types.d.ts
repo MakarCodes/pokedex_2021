@@ -11,3 +11,23 @@ interface IPokemon {
     back_default: string;
   };
 }
+
+type AvailavlePokemonTypes =
+  | 'normal'
+  | 'fighting'
+  | 'flying'
+  | 'poison'
+  | 'ground'
+  | 'rock'
+  | 'bug'
+  | 'ghost'
+  | 'steel'
+  | 'fire'
+  | 'water'
+  | 'grass'
+  | 'electric'
+  | 'psychic'
+  | 'ice'
+  | 'dragon'
+  | 'fairy'
+  | 'dark';

@@ -33,10 +33,24 @@ const Pokedex = () => {
           .slice(0, 20)
           .map(pokemon => <PokemonCard pokemon={pokemon} />)
       ) : (
-        <Spinner />
+        <div>
+          <p>Pateince young padawan... Data is loading... :)</p>
+          <Spinner />
+        </div>
       )}
     </div>
   );
 };
 
 export default Pokedex;
+
+// types = [typeOne, typeTwo]
+
+// //1 type types.length === 1
+// pokemons.filter(pokemon => pokemon.types.indexOf(type) > 0)
+
+// // 2 types types.length === 2
+// pokemons.filter(pokemon => pokemon.types.indexOf(typeOne) > 0 && pokemon.types.indexOf(typeTwo) > 0)
+// pokemons.filter(pokemon => pokemon.types.every(type => pokemon.types.include(type)))
+
+// //3 types.length === 0 -> take from store

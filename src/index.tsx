@@ -5,13 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 import 'normalize.css';
 import './index.css';
 import PokemonsContextProvider from './store/context/pokemonsContextProvider';
+import ViewportSizeContextProvider from './contexts/ViewportSizeContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <PokemonsContextProvider>
-        <App />
-      </PokemonsContextProvider>
+      <ViewportSizeContextProvider>
+        <PokemonsContextProvider>
+          <App />
+        </PokemonsContextProvider>
+      </ViewportSizeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

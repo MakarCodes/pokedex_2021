@@ -1,13 +1,26 @@
 import { useEffect, useContext } from 'react';
-import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
-import PokemonCard from '../PokemonCard/PokemonCard';
+import getPokemons from '../../store/context/getPokemons';
 import classes from './Pokedex.module.scss';
+import { URL_ALL_POKEMONS } from '../../constans/constans';
+
+import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
+
+import PokemonCard from '../PokemonCard/PokemonCard';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
   useEffect(() => {
-    fetchActions.fetchPokemons();
-  }, []);
+    const fetchPokemons = async () => {
+      fetchActions.fetchPokemonsStart();
+      try {
+        const pokemons = await getPokemons(URL_ALL_POKEMONS);
+        fetchActions.fetchPokemonsSuccess(pokemons);
+      } catch (err) {
+        fetchActions.fetchPokemonsFail();
+      }
+    };
+    fetchPokemons();
+  }, [URL_ALL_POKEMONS]);
 
   useEffect(() => {
     console.log(pokedexState);

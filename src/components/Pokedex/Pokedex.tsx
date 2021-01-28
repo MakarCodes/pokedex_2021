@@ -8,9 +8,20 @@ import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 import PokemonCard from './PokemonCard/PokemonCard';
 import Spinner from '../UI/Spinner/Spinner';
 import Filter from './Filter/Filter';
+import useTypeChanger from '../../customHooks/useTypeChanger';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
+  const { types, handleTypeChange } = useTypeChanger();
+
+  useEffect(() => {
+    console.log(types);
+  }, [types]);
+
+  useEffect(() => {
+    console.log(pokedexState);
+  }, [pokedexState]);
+
   useEffect(() => {
     const fetchPokemons = async () => {
       fetchActions.fetchPokemonsStart();
@@ -31,11 +42,9 @@ const Pokedex = () => {
     const target = e.target as HTMLButtonElement;
     console.log('You selected type', type);
     target.style.backgroundColor = 'red';
+    handleTypeChange(type);
   };
 
-  useEffect(() => {
-    console.log(pokedexState);
-  }, [pokedexState]);
   return (
     <div className={classes.Wrapper}>
       <Filter handleTypeBtnClick={handleTypeBtnClick} />

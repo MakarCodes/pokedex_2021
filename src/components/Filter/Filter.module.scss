@@ -1,0 +1,46 @@
+.Container {
+  width: 100%;
+  display: block;
+  background-color: #fce38a;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.Wrapper {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.FilterTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 10px;
+}
+
+.Note {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #212529;
+}
+
+.ToggleBtn {
+  padding: 8px;
+  font-size: 0.8rem;
+  color: #212529;
+  background-color: #f38181;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ButtonsWrapper {
+  display: flex;
+}

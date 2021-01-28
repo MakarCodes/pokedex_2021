@@ -7,6 +7,7 @@ import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 
 import PokemonCard from '../PokemonCard/PokemonCard';
 import Spinner from '../Spinner/Spinner';
+import Filter from '../Filter/Filter';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
@@ -28,6 +29,7 @@ const Pokedex = () => {
   }, [pokedexState]);
   return (
     <div className={classes.Container}>
+      <Filter />
       {!pokedexState.isLoading ? (
         pokedexState.pokemons
           .slice(0, 20)

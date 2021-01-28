@@ -24,22 +24,29 @@ const Pokedex = () => {
     fetchPokemons();
   }, []);
 
-  const handleTypeBtnClick = (type: AvailavlePokemonTypes) => {
+  const handleTypeBtnClick = (
+    type: AvailavlePokemonTypes,
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const target = e.target as HTMLButtonElement;
     console.log('You selected type', type);
+    target.style.backgroundColor = 'red';
   };
 
   useEffect(() => {
     console.log(pokedexState);
   }, [pokedexState]);
   return (
-    <div className={classes.Container}>
+    <div className={classes.Wrapper}>
       <Filter handleTypeBtnClick={handleTypeBtnClick} />
       {!pokedexState.isLoading ? (
-        pokedexState.pokemons
-          .slice(0, 20)
-          .map(pokemon => <PokemonCard pokemon={pokemon} />)
+        <div className={classes.Container}>
+          {pokedexState.pokemons.slice(0, 20).map(pokemon => (
+            <PokemonCard pokemon={pokemon} />
+          ))}
+        </div>
       ) : (
-        <div>
+        <div className={classes.SpinnerContainer}>
           <p className={classes.LoadingText}>
             Pateince young padawan... Data is loading... :)
           </p>

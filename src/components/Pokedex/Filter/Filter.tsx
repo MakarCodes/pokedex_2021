@@ -16,7 +16,10 @@ const useToggle = () => {
 };
 
 interface IProps {
-  handleTypeBtnClick: (type: AvailavlePokemonTypes) => void;
+  handleTypeBtnClick: (
+    type: AvailavlePokemonTypes,
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }
 
 const Filter: React.FC<IProps> = ({ handleTypeBtnClick }) => {

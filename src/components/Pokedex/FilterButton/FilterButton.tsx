@@ -3,11 +3,14 @@ import classes from './FilterButton.module.scss';
 
 interface IProps {
   type: AvailavlePokemonTypes;
-  handleTypeBtnClick: (type: AvailavlePokemonTypes) => void;
+  handleTypeBtnClick: (
+    type: AvailavlePokemonTypes,
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
 }
 const FilterButton: React.FC<IProps> = ({ type, handleTypeBtnClick }) => (
   <button
-    onClick={() => handleTypeBtnClick(type)}
+    onClick={e => handleTypeBtnClick(type, e)}
     className={classes.FilterBtn}
   >
     {type}

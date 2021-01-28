@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import classes from './Filter.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
+
+import { POKEMON_TYPES } from '../../../constans/constans';
+import FilterButton from '../FilterButton/FilterButton';
 
 const useToggle = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,8 +15,24 @@ const useToggle = () => {
   return { isVisible, toggle };
 };
 
-const Filter = () => {
+interface IProps {
+  handleTypeBtnClick: (type: AvailavlePokemonTypes) => void;
+}
+
+const Filter: React.FC<IProps> = ({ handleTypeBtnClick }) => {
   const { isVisible, toggle } = useToggle();
+
+  const filterButtonsToRender = useMemo(
+    () =>
+      POKEMON_TYPES.map((pokemonType, idx) => (
+        <FilterButton
+          type={pokemonType}
+          handleTypeBtnClick={handleTypeBtnClick}
+          key={pokemonType + idx}
+        />
+      )),
+    [POKEMON_TYPES, handleTypeBtnClick]
+  );
   return (
     <div className={classes.Container}>
       <div className={classes.Wrapper}>
@@ -30,7 +49,9 @@ const Filter = () => {
             </i>
           </button>
         </div>
-        {isVisible && <div className={classes.ButtonsWrapper}>test</div>}
+        {isVisible && (
+          <div className={classes.ButtonsWrapper}>{filterButtonsToRender}</div>
+        )}
       </div>
     </div>
   );

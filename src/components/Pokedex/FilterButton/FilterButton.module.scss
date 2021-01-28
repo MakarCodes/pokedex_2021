@@ -1,0 +1,14 @@
+.FilterBtn {
+  background-color: transparent;
+  color: #212529;
+  border: solid 2px #212529;
+  border-radius: 4px;
+  padding: 8px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

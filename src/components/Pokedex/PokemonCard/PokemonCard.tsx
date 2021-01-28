@@ -8,7 +8,7 @@ import {
 
 import classes from './PokemonCard.module.scss';
 
-import { TYPE_COLORS } from '../../constans/constans';
+import { TYPE_COLORS } from '../../../constans/constans';
 
 interface IProps {
   pokemon: IPokemon;

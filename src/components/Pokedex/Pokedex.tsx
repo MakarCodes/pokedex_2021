@@ -5,9 +5,9 @@ import { URL_ALL_POKEMONS } from '../../constans/constans';
 
 import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 
-import PokemonCard from '../PokemonCard/PokemonCard';
-import Spinner from '../Spinner/Spinner';
-import Filter from '../Filter/Filter';
+import PokemonCard from './PokemonCard/PokemonCard';
+import Spinner from '../UI/Spinner/Spinner';
+import Filter from './Filter/Filter';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
@@ -24,19 +24,25 @@ const Pokedex = () => {
     fetchPokemons();
   }, []);
 
+  const handleTypeBtnClick = (type: AvailavlePokemonTypes) => {
+    console.log('You selected type', type);
+  };
+
   useEffect(() => {
     console.log(pokedexState);
   }, [pokedexState]);
   return (
     <div className={classes.Container}>
-      <Filter />
+      <Filter handleTypeBtnClick={handleTypeBtnClick} />
       {!pokedexState.isLoading ? (
         pokedexState.pokemons
           .slice(0, 20)
           .map(pokemon => <PokemonCard pokemon={pokemon} />)
       ) : (
         <div>
-          <p>Pateince young padawan... Data is loading... :)</p>
+          <p className={classes.LoadingText}>
+            Pateince young padawan... Data is loading... :)
+          </p>
           <Spinner />
         </div>
       )}

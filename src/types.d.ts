@@ -5,7 +5,7 @@ interface IPokemon {
   name: string;
   height: number;
   weight: number;
-  types: string[];
+  types: AvailavlePokemonTypes[];
   sprites: {
     front_default: string;
     back_default: string;

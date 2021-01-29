@@ -12,10 +12,12 @@ import useTypeChanger from '../../customHooks/useTypeChanger';
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
-  const { types, handleTypeChange } = useTypeChanger();
+  const { types, handleTypeChange, handlePokemonFiltering } = useTypeChanger();
 
   useEffect(() => {
     console.log(types);
+    const result = handlePokemonFiltering(pokedexState.pokemons, types);
+    console.log(result);
   }, [types]);
 
   useEffect(() => {

@@ -33,7 +33,22 @@ const useTypeChanger = () => {
     }
   };
 
-  return { types, handleTypeChange };
+  const handlePokemonFiltering = (
+    pokemons: IPokemon[],
+    types: AvailavlePokemonTypes[]
+  ) => {
+    if (types.length === 1) {
+      return pokemons.filter(pokemon => pokemon.types.indexOf(types[0]) >= 0);
+    }
+    if (types.length === 2) {
+      return pokemons.filter(pokemon =>
+        pokemon.types.every(type => types.indexOf(type) >= 0)
+      );
+    }
+    return pokemons;
+  };
+
+  return { types, handleTypeChange, handlePokemonFiltering };
 };
 
 export default useTypeChanger;

@@ -59,8 +59,8 @@ const drawId = (id: number) => {
 const PokemonCard: React.FC<IProps> = ({ pokemon }) => {
   const { id, name, height, weight, types, sprites } = pokemon;
   const cardBg = useMemo(() => generateBgDependingOnType(pokemon), [pokemon]);
-  const pokemonTypes = useMemo(() => drawTypes(types), [pokemon]);
-  const pokemonId = useMemo(() => drawId(id), [pokemon]);
+  const pokemonTypes = useMemo(() => drawTypes(types), [types]);
+  const pokemonId = useMemo(() => drawId(id), [id]);
 
   return (
     <div

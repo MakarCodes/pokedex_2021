@@ -11,7 +11,7 @@ const Footer: React.FC<IProps> = ({ setFooterHeight }) => {
     if (targetRef.current) {
       setFooterHeight(targetRef.current.offsetHeight);
     }
-  }, []);
+  }, [setFooterHeight]);
   return (
     <div ref={targetRef}>
       <div className={classes.FooterContainer}>

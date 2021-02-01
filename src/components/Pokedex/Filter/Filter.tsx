@@ -22,8 +22,7 @@ interface IProps {
 
 const setButtonBGColor = (
   btnType: AvailavlePokemonTypes,
-  currentTypes: AvailavlePokemonTypes[],
-  TYPE_COLORS: ITypes
+  currentTypes: AvailavlePokemonTypes[]
 ) => {
   const idx = currentTypes.indexOf(btnType);
   if (idx !== -1) {
@@ -42,10 +41,10 @@ const Filter: React.FC<IProps> = ({ types, handleTypeChange }) => {
           type={pokemonType}
           handleTypeChange={handleTypeChange}
           key={pokemonType + idx}
-          bgColor={setButtonBGColor(pokemonType, types, TYPE_COLORS)}
+          bgColor={setButtonBGColor(pokemonType, types)}
         />
       )),
-    [POKEMON_TYPES, handleTypeChange, types]
+    [handleTypeChange, types]
   );
   return (
     <div className={classes.Container}>

@@ -20,7 +20,7 @@ const Navbar: React.FC<IProps> = ({ setNavbarHeight }) => {
     if (targetRef.current) {
       setNavbarHeight(targetRef.current.offsetHeight);
     }
-  }, []);
+  }, [setNavbarHeight]);
 
   return (
     <div className={classes.Wrapper} ref={targetRef}>

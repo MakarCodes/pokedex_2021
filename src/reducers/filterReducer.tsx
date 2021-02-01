@@ -1,5 +1,3 @@
-import React from 'react';
-
 // updating types state on buttons click
 // if types.length === 0 -> types.push(type)
 // if types.length === 1 -> types.includes(type) -> remove else add
@@ -27,6 +25,11 @@ interface IState {
   isFilterActive: boolean;
 }
 
+export const initialState: IState = {
+  filteredPokemons: [],
+  isFilterActive: false,
+};
+
 export enum ActionTypes {
   FILTER_POKEMONS = 'FILTER_POKEMONS',
 }
@@ -34,22 +37,48 @@ export enum ActionTypes {
 export type Actions = {
   type: 'FILTER_POKEMONS';
   payload: {
+    pokemons: IPokemon[];
     types: AvailavlePokemonTypes[];
   };
 };
 
-const filerReducer = (state: IState, actions: Actions) => {
-  switch (actions.type) {
+const filterPokemonsByType = (
+  pokemons: IPokemon[],
+  types: AvailavlePokemonTypes[]
+) => {
+  if (types.length === 1) {
+    return pokemons.filter(pokemon => pokemon.types.indexOf(types[0]) >= 0);
+  }
+  if (types.length === 2) {
+    return pokemons.filter(pokemon =>
+      pokemon.types.every(type => types.indexOf(type) >= 0)
+    );
+  }
+  return pokemons;
+};
+
+const filterPokemons = (state: IState, actions: Actions) => {
+  const { pokemons, types } = actions.payload;
+  const filteredPokemons = filterPokemonsByType(pokemons, types);
+  if (types.length) {
+    return {
+      filteredPokemons,
+      isFilterActive: true,
+    };
+  }
+  return {
+    filteredPokemons,
+    isFilterActive: false,
+  };
+};
+
+const filterReducer = (state: IState, action: Actions) => {
+  switch (action.type) {
     case ActionTypes.FILTER_POKEMONS:
-      // logic for filtering
-      // return {
-      //   filteredPokemons,
-      //   isFilterActive: true,
-      // };
-      return state;
+      return filterPokemons(state, action);
     default:
       return state;
   }
 };
 
-export default filerReducer;
+export default filterReducer;

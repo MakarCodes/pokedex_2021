@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useReducer } from 'react';
 import getPokemons from '../../store/context/getPokemons';
 import classes from './Pokedex.module.scss';
 import { URL_ALL_POKEMONS } from '../../constans/constans';
@@ -9,15 +9,33 @@ import PokemonCard from './PokemonCard/PokemonCard';
 import Spinner from '../UI/Spinner/Spinner';
 import Filter from './Filter/Filter';
 import useTypeChanger from '../../customHooks/useTypeChanger';
+import filterReducer, {
+  Actions,
+  ActionTypes,
+  initialState,
+} from '../../reducers/filterReducer';
+
+const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
+  filterPokemons: (pokemons: IPokemon[], types: AvailavlePokemonTypes[]) =>
+    dispatch({
+      type: ActionTypes.FILTER_POKEMONS,
+      payload: {
+        pokemons,
+        types,
+      },
+    }),
+});
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
-  const { types, handleTypeChange, handlePokemonFiltering } = useTypeChanger();
+  const { types, handleTypeChange } = useTypeChanger();
+
+  const [state, dispatch] = useReducer(filterReducer, initialState);
+  const actions = actionsFactory(dispatch);
 
   useEffect(() => {
     console.log(types);
-    const result = handlePokemonFiltering(pokedexState.pokemons, types);
-    console.log(result);
+    actions.filterPokemons(pokedexState.pokemons, types);
   }, [types]);
 
   useEffect(() => {
@@ -52,9 +70,13 @@ const Pokedex = () => {
       <Filter handleTypeBtnClick={handleTypeBtnClick} />
       {!pokedexState.isLoading ? (
         <div className={classes.Container}>
-          {pokedexState.pokemons.slice(0, 20).map(pokemon => (
-            <PokemonCard pokemon={pokemon} />
-          ))}
+          {state.isFilterActive
+            ? state.filteredPokemons
+                .slice(0, 20)
+                .map(pokemon => <PokemonCard pokemon={pokemon} />)
+            : pokedexState.pokemons
+                .slice(0, 20)
+                .map(pokemon => <PokemonCard pokemon={pokemon} />)}
         </div>
       ) : (
         <div className={classes.SpinnerContainer}>

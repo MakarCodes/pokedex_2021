@@ -31,3 +31,7 @@ type AvailavlePokemonTypes =
   | 'dragon'
   | 'fairy'
   | 'dark';
+
+interface ITypes {
+  [key: string]: string;
+}

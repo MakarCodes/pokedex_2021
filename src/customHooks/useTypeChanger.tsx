@@ -33,8 +33,6 @@ const useTypeChanger = () => {
     }
   };
 
-  // const handleBackgroundColorChange
-
   return { types, handleTypeChange };
 };
 

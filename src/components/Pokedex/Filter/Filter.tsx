@@ -4,7 +4,7 @@ import classes from './Filter.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 
-import { POKEMON_TYPES } from '../../../constans/constans';
+import { POKEMON_TYPES, TYPE_COLORS } from '../../../constans/constans';
 import FilterButton from '../FilterButton/FilterButton';
 
 const useToggle = () => {
@@ -16,13 +16,23 @@ const useToggle = () => {
 };
 
 interface IProps {
-  handleTypeBtnClick: (
-    type: AvailavlePokemonTypes,
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => void;
+  types: AvailavlePokemonTypes[];
+  handleTypeChange: (type: AvailavlePokemonTypes) => void;
 }
 
-const Filter: React.FC<IProps> = ({ handleTypeBtnClick }) => {
+const setButtonBGColor = (
+  btnType: AvailavlePokemonTypes,
+  currentTypes: AvailavlePokemonTypes[],
+  TYPE_COLORS: ITypes
+) => {
+  const idx = currentTypes.indexOf(btnType);
+  if (idx !== -1) {
+    return TYPE_COLORS[btnType];
+  }
+  return '';
+};
+
+const Filter: React.FC<IProps> = ({ types, handleTypeChange }) => {
   const { isVisible, toggle } = useToggle();
 
   const filterButtonsToRender = useMemo(
@@ -30,11 +40,12 @@ const Filter: React.FC<IProps> = ({ handleTypeBtnClick }) => {
       POKEMON_TYPES.map((pokemonType, idx) => (
         <FilterButton
           type={pokemonType}
-          handleTypeBtnClick={handleTypeBtnClick}
+          handleTypeChange={handleTypeChange}
           key={pokemonType + idx}
+          bgColor={setButtonBGColor(pokemonType, types, TYPE_COLORS)}
         />
       )),
-    [POKEMON_TYPES, handleTypeBtnClick]
+    [POKEMON_TYPES, handleTypeChange, types]
   );
   return (
     <div className={classes.Container}>

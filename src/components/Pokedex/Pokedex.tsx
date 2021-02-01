@@ -34,15 +34,6 @@ const Pokedex = () => {
   const actions = actionsFactory(dispatch);
 
   useEffect(() => {
-    console.log(types);
-    actions.filterPokemons(pokedexState.pokemons, types);
-  }, [types]);
-
-  useEffect(() => {
-    console.log(pokedexState);
-  }, [pokedexState]);
-
-  useEffect(() => {
     const fetchPokemons = async () => {
       fetchActions.fetchPokemonsStart();
       try {
@@ -55,19 +46,14 @@ const Pokedex = () => {
     fetchPokemons();
   }, []);
 
-  const handleTypeBtnClick = (
-    type: AvailavlePokemonTypes,
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    const target = e.target as HTMLButtonElement;
-    console.log('You selected type', type);
-    target.style.backgroundColor = 'red';
-    handleTypeChange(type);
-  };
+  useEffect(() => {
+    console.log(types);
+    actions.filterPokemons(pokedexState.pokemons, types);
+  }, [types]);
 
   return (
     <div className={classes.Wrapper}>
-      <Filter handleTypeBtnClick={handleTypeBtnClick} />
+      <Filter handleTypeChange={handleTypeChange} types={types} />
       {!pokedexState.isLoading ? (
         <div className={classes.Container}>
           {state.isFilterActive

@@ -15,11 +15,6 @@ const useToggle = () => {
   return { isVisible, toggle };
 };
 
-interface IProps {
-  types: AvailavlePokemonTypes[];
-  handleTypeChange: (type: AvailavlePokemonTypes) => void;
-}
-
 const setButtonBGColor = (
   btnType: AvailavlePokemonTypes,
   currentTypes: AvailavlePokemonTypes[]
@@ -31,7 +26,13 @@ const setButtonBGColor = (
   return '';
 };
 
-const Filter: React.FC<IProps> = ({ types, handleTypeChange }) => {
+interface IProps {
+  types: AvailavlePokemonTypes[];
+  handleTypeChange: (type: AvailavlePokemonTypes) => void;
+  resetTypes: () => void;
+}
+
+const Filter: React.FC<IProps> = ({ types, handleTypeChange, resetTypes }) => {
   const { isVisible, toggle } = useToggle();
 
   const filterButtonsToRender = useMemo(
@@ -55,12 +56,17 @@ const Filter: React.FC<IProps> = ({ types, handleTypeChange }) => {
         <p className={classes.Note}>
           Please note, that maximum of two types can be chosen simultaneously.
         </p>
-        <div>
+        <div className={classes.ActionBtnContainer}>
           <button className={classes.ToggleBtn} onClick={() => toggle()}>
             <i>
               <FontAwesomeIcon icon={faFilter} size='2x' />
             </i>
           </button>
+          {isVisible && (
+            <button onClick={() => resetTypes()} className={classes.ResetBtn}>
+              clear filters
+            </button>
+          )}
         </div>
         {isVisible && (
           <div className={classes.ButtonsWrapper}>{filterButtonsToRender}</div>

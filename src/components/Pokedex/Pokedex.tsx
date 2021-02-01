@@ -28,7 +28,7 @@ const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
 
 const Pokedex = () => {
   const { pokedexState, fetchActions } = useContext(pokedexCtx);
-  const { types, handleTypeChange } = useTypeChanger();
+  const { types, handleTypeChange, resetTypes } = useTypeChanger();
 
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const actions = actionsFactory(dispatch);
@@ -53,7 +53,11 @@ const Pokedex = () => {
 
   return (
     <div className={classes.Wrapper}>
-      <Filter handleTypeChange={handleTypeChange} types={types} />
+      <Filter
+        types={types}
+        handleTypeChange={handleTypeChange}
+        resetTypes={resetTypes}
+      />
       {!pokedexState.isLoading ? (
         <div className={classes.Container}>
           {state.isFilterActive

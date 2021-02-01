@@ -41,6 +41,27 @@
   margin-bottom: 6px;
 }
 
+.ActionBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ResetBtn {
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  background-color: #f38181;
+  border: solid 2px #212529;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 6px;
+}
+
 .ButtonsWrapper {
   width: 100%;
   margin: 10px 0;

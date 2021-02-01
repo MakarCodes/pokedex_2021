@@ -3,6 +3,8 @@ import { useState } from 'react';
 const useTypeChanger = () => {
   const [types, setTypes] = useState<AvailavlePokemonTypes[]>([]);
 
+  const resetTypes = () => setTypes([]);
+
   const handleTypeChange = (type: AvailavlePokemonTypes) => {
     switch (types.length) {
       case 0: {
@@ -33,7 +35,7 @@ const useTypeChanger = () => {
     }
   };
 
-  return { types, handleTypeChange };
+  return { types, handleTypeChange, resetTypes };
 };
 
 export default useTypeChanger;

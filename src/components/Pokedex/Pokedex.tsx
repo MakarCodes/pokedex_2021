@@ -1,7 +1,5 @@
 import { useEffect, useContext, useReducer } from 'react';
-import getPokemons from '../../store/context/getPokemons';
 import classes from './Pokedex.module.scss';
-import { URL_ALL_POKEMONS } from '../../constans/constans';
 
 import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 
@@ -27,36 +25,21 @@ const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
 });
 
 const Pokedex = () => {
-  const { pokedexState, fetchActions } = useContext(pokedexCtx);
+  const { pokedexState } = useContext(pokedexCtx);
   const { types, handleTypeChange, resetTypes } = useTypeChanger();
 
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const actions = actionsFactory(dispatch);
 
-  // sprawdzic too return w try catch
-
   useEffect(() => {
-    const fetchPokemons = async () => {
-      fetchActions.fetchPokemonsStart();
-      try {
-        const pokemons = await getPokemons(URL_ALL_POKEMONS);
-        fetchActions.fetchPokemonsSuccess(pokemons);
-        return pokemons;
-      } catch (err) {
-        fetchActions.fetchPokemonsFail();
-      }
-      return null;
-    };
-    fetchPokemons().then(pokemons => {
-      if (pokemons)
-        dispatch({
-          type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
-          payload: {
-            pokemons,
-          },
-        });
-    });
-  }, []);
+    if (pokedexState.pokemons)
+      dispatch({
+        type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
+        payload: {
+          pokemons: pokedexState.pokemons,
+        },
+      });
+  }, [pokedexState.pokemons]);
 
   useEffect(() => {
     actions.filterPokemons(pokedexState.pokemons, types);

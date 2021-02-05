@@ -2,8 +2,10 @@
   width: 100%;
   display: block;
   background-color: #fce38a;
-  border-radius: 10px;
   margin-bottom: 60px;
+  @media (min-width: 768px) {
+    border-radius: 10px;
+  }
 }
 
 .Wrapper {

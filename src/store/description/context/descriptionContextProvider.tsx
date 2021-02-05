@@ -23,7 +23,7 @@ const initCtx: IContext = {
   },
 };
 
-export const pokedexCtx = createContext(initCtx);
+export const descriptionCtx = createContext(initCtx);
 
 const DescriptionContextProvider: React.FC<React.ReactNode> = ({
   children,
@@ -45,7 +45,9 @@ const DescriptionContextProvider: React.FC<React.ReactNode> = ({
     fetchActions,
   };
   return (
-    <pokedexCtx.Provider value={providerValue}>{children}</pokedexCtx.Provider>
+    <descriptionCtx.Provider value={providerValue}>
+      {children}
+    </descriptionCtx.Provider>
   );
 };
 

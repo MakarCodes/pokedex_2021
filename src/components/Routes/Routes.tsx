@@ -6,7 +6,8 @@ import Pokedex from '../Pokedex/Pokedex';
 import Purpose from '../Purpose/Purpose';
 import RouteModal from '../UI/RouteModal/RouteModal';
 import PokemonDetails from '../Pokedex/PokemonDetails/PokemonDetails';
-import { useEffect } from 'react';
+import { useMemo } from 'react';
+import { useQuery } from '../../customHooks/useQuery';
 
 interface ILocationState {
   pathname: string;
@@ -16,9 +17,7 @@ interface ILocationState {
 const Routes = () => {
   const location: ILocationState = useLocation();
   const background = location.state && location.state.background;
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  const id = useMemo(() => useQuery('id', location), [location]);
   return (
     <>
       <Switch location={background || location}>
@@ -32,7 +31,7 @@ const Routes = () => {
           path='/:name'
           children={
             <RouteModal>
-              <PokemonDetails />
+              <PokemonDetails id={id} />
             </RouteModal>
           }
         />

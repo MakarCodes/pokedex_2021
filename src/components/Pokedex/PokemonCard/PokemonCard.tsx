@@ -68,6 +68,7 @@ const PokemonCard: React.FC<IProps> = ({ pokemon }) => {
     <Link
       to={{
         pathname: `/${name}`,
+        search: `?id=${id}`,
         state: { background: location },
       }}
       style={{ textDecoration: 'none' }}

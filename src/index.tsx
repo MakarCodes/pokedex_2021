@@ -6,13 +6,16 @@ import 'normalize.css';
 import './index.css';
 import PokemonsContextProvider from './store/pokemons/context/pokemonsContextProvider';
 import ViewportSizeContextProvider from './contexts/ViewportSizeContextProvider';
+import DescriptionContextProvider from './store/description/context/descriptionContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ViewportSizeContextProvider>
         <PokemonsContextProvider>
-          <App />
+          <DescriptionContextProvider>
+            <App />
+          </DescriptionContextProvider>
         </PokemonsContextProvider>
       </ViewportSizeContextProvider>
     </BrowserRouter>

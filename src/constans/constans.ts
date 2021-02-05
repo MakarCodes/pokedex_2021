@@ -1,5 +1,7 @@
 export const URL_ALL_POKEMONS =
   'https://pokeapi.co/api/v2/pokemon?offset=0&limit=500';
+export const URL_POKEMON_DESCRIPTION =
+  'https://pokeapi.co/api/v2/pokemon-species';
 
 export const POKEMON_TYPES: AvailavlePokemonTypes[] = [
   'normal',

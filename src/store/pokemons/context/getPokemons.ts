@@ -9,13 +9,19 @@ const getPokemons = async (url: string) => {
     data.results.map(async <T extends IWithUrl>(result: T) => {
       const response = await fetch(result.url);
       const data = await response.json();
-      const { id, name, height, weight, types, sprites } = data;
+      const { id, name, height, weight, types, sprites, stats } = data;
       const { front_default, back_default } = sprites;
       const spritesImages = {
         front_default,
         back_default,
       };
       const pokemonTypes = types.map((type: any) => type.type.name);
+      const pokemonStats = stats.map((singleStat: any) => {
+        return {
+          stateName: singleStat.stat.name,
+          stateValue: singleStat.base_stat,
+        };
+      });
       return {
         id,
         name,
@@ -23,6 +29,7 @@ const getPokemons = async (url: string) => {
         weight,
         sprites: spritesImages,
         types: pokemonTypes,
+        stats: pokemonStats,
       };
     })
   );

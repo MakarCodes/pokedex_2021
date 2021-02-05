@@ -19,7 +19,7 @@ const RouteModal: React.FC<React.ReactNode> = ({ children }) => {
   }, []);
 
   return (
-    <div className={classes.Wrapper}>
+    <div className={classes.Wrapper} onClick={closeModal}>
       <span className={classes.Close} onClick={closeModal}>
         <svg
           className={classes.CloseIcon}

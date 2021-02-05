@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
 import Routes from './components/Routes/Routes';
 import { URL_ALL_POKEMONS } from './constans/constans';
-import getPokemons from './store/context/getPokemons';
-import { pokedexCtx } from './store/context/pokemonsContextProvider';
+import getPokemons from './store/pokemons/context/getPokemons';
+import { pokedexCtx } from './store/pokemons/context/pokemonsContextProvider';
 
 const App = () => {
   const { fetchActions } = useContext(pokedexCtx);

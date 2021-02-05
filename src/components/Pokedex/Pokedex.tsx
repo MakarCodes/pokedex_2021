@@ -5,7 +5,6 @@ import { URL_ALL_POKEMONS } from '../../constans/constans';
 
 import { pokedexCtx } from '../../store/context/pokemonsContextProvider';
 
-import PokemonCard from './PokemonCard/PokemonCard';
 import Spinner from '../UI/Spinner/Spinner';
 import Filter from './Filter/Filter';
 import useTypeChanger from '../../customHooks/useTypeChanger';
@@ -14,6 +13,7 @@ import filterReducer, {
   ActionTypes,
   initialState,
 } from '../../reducers/filterReducer';
+import Pokemons from './Pokemons/Pokemons';
 
 const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
   filterPokemons: (pokemons: IPokemon[], types: AvailavlePokemonTypes[]) =>
@@ -33,21 +33,31 @@ const Pokedex = () => {
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const actions = actionsFactory(dispatch);
 
+  // sprawdzic too return w try catch
+
   useEffect(() => {
     const fetchPokemons = async () => {
       fetchActions.fetchPokemonsStart();
       try {
         const pokemons = await getPokemons(URL_ALL_POKEMONS);
         fetchActions.fetchPokemonsSuccess(pokemons);
+        return pokemons;
       } catch (err) {
         fetchActions.fetchPokemonsFail();
       }
     };
-    fetchPokemons();
+    fetchPokemons().then(pokemons => {
+      if (pokemons)
+        dispatch({
+          type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
+          payload: {
+            pokemons,
+          },
+        });
+    });
   }, []);
 
   useEffect(() => {
-    console.log(types);
     actions.filterPokemons(pokedexState.pokemons, types);
   }, [types]);
 
@@ -59,15 +69,7 @@ const Pokedex = () => {
         resetTypes={resetTypes}
       />
       {!pokedexState.isLoading ? (
-        <div className={classes.Container}>
-          {state.isFilterActive
-            ? state.filteredPokemons
-                .slice(0, 20)
-                .map(pokemon => <PokemonCard pokemon={pokemon} />)
-            : pokedexState.pokemons
-                .slice(0, 20)
-                .map(pokemon => <PokemonCard pokemon={pokemon} />)}
-        </div>
+        <Pokemons pokemonsToDisplay={state.pokemonsToDisplay} types={types} />
       ) : (
         <div className={classes.SpinnerContainer}>
           <p className={classes.LoadingText}>

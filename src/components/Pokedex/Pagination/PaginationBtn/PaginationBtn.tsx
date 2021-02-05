@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../PaginationPanel/PaginationPanel.module.scss';
+import styles from './PaginationBtn.module.scss';
 
 interface IProps {
   number: number;

@@ -1,8 +1,7 @@
-import React from 'react';
-import styles from '../PaginationPanel/PaginationPanel.module.scss';
+import styles from './Dots.module.scss';
 
 const Dots = () => {
-  return <span className={styles.Dots}>...</span>;
+  return <div className={styles.Dots}>...</div>;
 };
 
 export default Dots;

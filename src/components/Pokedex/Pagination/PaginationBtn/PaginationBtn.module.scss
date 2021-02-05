@@ -1,0 +1,18 @@
+.PaginationBtn {
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  background-color: #f38181;
+  color: #212529;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+.PaginationBtn:hover {
+  background-color: rgba(243, 129, 129, 0.7);
+}
+
+.PaginationBtnActive {
+  background-color: #f34040;
+  color: white;
+}

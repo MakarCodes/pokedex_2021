@@ -45,6 +45,7 @@ const Pokedex = () => {
       } catch (err) {
         fetchActions.fetchPokemonsFail();
       }
+      return null;
     };
     fetchPokemons().then(pokemons => {
       if (pokemons)

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import styles from './PaginationPanel.module.scss';
 import { IPaginationActions } from '../paginationTypes';
 import { generatePagsToRender } from './generatePagesToRender';
+import PaginateActionBtn from '../PaginateActionBtn/PaginateActionBtn';
 interface IProps {
   paginationState: {
     lastPageIdx: number;
@@ -32,32 +33,20 @@ const PaginationPanel: React.FC<IProps> = ({
   return (
     <div className={styles.PaginationWrapper}>
       <div className={styles.ButtonsContainer}>
-        <button
-          onClick={() => goToFirstPage()}
-          className={styles.PaginationBtn}
-        >
-          FIRST PAGE
-        </button>
-        <button
-          onClick={() => goToPreviousPage()}
+        <PaginateActionBtn actionName='FIRST PAGE' actionFn={goToFirstPage} />
+        <PaginateActionBtn
+          actionFn={goToPreviousPage}
           data-testid='goToPrevPage'
-          className={styles.PaginationBtn}
         >
           <span className={`${styles.Chevron} ${styles.ChevronLeft}`}></span>
-        </button>
+        </PaginateActionBtn>
         <div data-testid='goToPageButtons' style={{ display: 'flex' }}>
           {pagesToRender}
         </div>
-        <button
-          onClick={() => goToNextPage()}
-          data-testid='goToNextPage'
-          className={styles.PaginationBtn}
-        >
+        <PaginateActionBtn actionFn={goToNextPage} data-testid='goToNextPage'>
           <span className={`${styles.Chevron} ${styles.ChevronRight}`}></span>
-        </button>
-        <button onClick={() => goToLastPage()} className={styles.PaginationBtn}>
-          LAST PAGE
-        </button>
+        </PaginateActionBtn>
+        <PaginateActionBtn actionName='LAST PAGE' actionFn={goToLastPage} />
       </div>
     </div>
   );

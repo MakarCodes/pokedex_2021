@@ -4,14 +4,12 @@ interface IPokemonDetails extends IPokemon {
 
 export interface IState {
   pokemonDetails: IPokemonDetails | {};
-  description: string;
   isLoading: boolean;
   error: boolean;
 }
 
 export const initialState = {
   pokemonDetails: {},
-  description: '',
   isLoading: false,
   error: false,
 };
@@ -42,7 +40,6 @@ const descriptionReducer = (state: IState, action: Actions) => {
       return {
         ...state,
         isLoading: false,
-        description: action.payload.description,
         pokemonDetails: {
           ...action.payload.pokemon,
           description: action.payload.description,

@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+## General info
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application built with the newest technologist stack to blackbelt my programming skills, which includes and presents:
 
-## Available Scripts
+- gloal store ala Redux built on context api and reducer hook - fetched pokemons are stored in global context, which provides access to data from anywhere in the application and prevent uploading data while surffing through page
 
-In the project directory, you can run:
+- the ability to work with the external API - fetch action devided into 3 seperate actions start / success / error, which gives an opportunity for easy errors handling and spinner displaying while loading data
 
-### `npm start`
+- filtering logic - user can filter through different types of Pokemons - every Pokemon might have maximum two types, that's why user can filter selecting two types maximum simultenously
 
-Runs the app in the development mode.\
+- pagination with user-friendly logic - possibility to move through all pages with continuous preview of how many pages there are, which is active, etc.
+
+- modal on route change - user can also get additional detial information about every Pokemon by clicking on the specific card, which will lunch another fetching action
+
+- routing - give possibility to navigate to different url's without reload of the page
+
+- fully responsive app with mobile-first approach
+
+\*\*\* currently working on:
+
+- unit tests
+- BestPokemons subpage - usage of intersectionObserver Api and animations with framer-motion
+- Contact subpage - form with validation (react-hook-form)
+
+## Technologies
+
+Project is created with:
+
+- React ^17.0.1
+- TypeScript ^4.1.3
+- Jest & testing-library/react
+- SCSS
+
+## Live
+
+<a href="https://makarcodes.github.io/pokedex_2021/">Pokedex Live</a>
+
+## Setup
+
+To run this project, clone it and open with live server:
+
+```
+$ cd to the folder where you want to download the project
+$ git clone https://makarcodes.github.io/pokedex_2021/
+$ npm install
+$ npm start
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```

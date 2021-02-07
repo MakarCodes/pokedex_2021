@@ -10,7 +10,7 @@ import DescriptionContextProvider from './store/description/context/descriptionC
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ViewportSizeContextProvider>
         <PokemonsContextProvider>
           <DescriptionContextProvider>

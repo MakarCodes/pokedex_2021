@@ -38,7 +38,7 @@ const PokemonDetails: React.FC<IProps> = ({ id }) => {
 
   useEffect(() => {
     console.log(state.description, state.pokemonDetails);
-  }, [state.description, state.pokemonDetails]);
+  }, [state.pokemonDetails]);
   return <div>test</div>;
 };
 

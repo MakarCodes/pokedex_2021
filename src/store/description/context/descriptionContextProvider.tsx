@@ -9,7 +9,7 @@ export interface IContext {
   state: IState;
   fetchActions: {
     fetchDescriptionStart: () => void;
-    fetchDescriptionSuccess: (description: string) => void;
+    fetchDescriptionSuccess: (description: string, pokemon: IPokemon) => void;
     fetchDescriptionFail: () => void;
   };
 }

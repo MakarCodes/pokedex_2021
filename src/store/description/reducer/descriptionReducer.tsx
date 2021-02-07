@@ -1,10 +1,16 @@
+interface IPokemonDetails extends IPokemon {
+  description: string;
+}
+
 export interface IState {
+  pokemonDetails: IPokemonDetails | {};
   description: string;
   isLoading: boolean;
   error: boolean;
 }
 
 export const initialState = {
+  pokemonDetails: {},
   description: '',
   isLoading: false,
   error: false,
@@ -22,7 +28,7 @@ export type Actions =
     }
   | {
       type: 'FETCHING_DESCRIPTION_SUCCESS';
-      payload: { description: string };
+      payload: { description: string; pokemon: IPokemon };
     }
   | {
       type: 'FETCHING_DESCRIPTION_FAIL';
@@ -37,6 +43,10 @@ const descriptionReducer = (state: IState, action: Actions) => {
         ...state,
         isLoading: false,
         description: action.payload.description,
+        pokemonDetails: {
+          ...action.payload.pokemon,
+          description: action.payload.description,
+        },
       };
     case ActionTypes.FETCHING_DESCRIPTION_FAIL:
       return { ...state, isLoading: false, error: true };

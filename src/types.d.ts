@@ -10,7 +10,7 @@ interface IPokemon {
     front_default: string;
     back_default: string;
   };
-  stats: Array<{ stateName: string; stateValue: number }>;
+  stats: Array<{ statName: string; statValue: number }>;
 }
 
 type AvailavlePokemonTypes =

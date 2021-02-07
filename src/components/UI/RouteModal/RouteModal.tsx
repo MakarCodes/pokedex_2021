@@ -11,10 +11,10 @@ const RouteModal: React.FC<React.ReactNode> = ({ children }) => {
   };
 
   useEffect(() => {
-    document.body.classList.add('overflow-hidden');
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.classList.remove('overflow-hidden');
+      document.body.style.overflow = 'visible';
     };
   }, []);
 

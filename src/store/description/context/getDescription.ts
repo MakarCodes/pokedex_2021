@@ -9,7 +9,8 @@ const getDescription = async (url: string, id: string) => {
   const description = data.flavor_text_entries.find(
     <T extends IWithLanguage>(text: T) => text.language.name === 'en'
   );
-  return description.flavor_text;
+  const convertedDescription = description.flavor_text.replace(/\u21b5/g, '');
+  return convertedDescription;
 };
 
 export default getDescription;

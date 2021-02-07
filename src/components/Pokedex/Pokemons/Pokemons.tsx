@@ -20,9 +20,11 @@ const Pokemons: React.FC<IProps> = ({ pokemonsToDisplay, types }) => {
   return (
     <>
       <div className={classes.Container}>
-        {paginationState.entriesOnSelectedPage.slice(0, 20).map(pokemon => (
-          <PokemonCard pokemon={pokemon} />
-        ))}
+        {paginationState.entriesOnSelectedPage
+          .slice(0, 20)
+          .map((pokemon, idx) => (
+            <PokemonCard pokemon={pokemon} key={pokemon.name + idx} />
+          ))}
       </div>
       <div>
         <PaginationPanel

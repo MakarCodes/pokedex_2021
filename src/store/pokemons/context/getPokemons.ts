@@ -18,8 +18,8 @@ const getPokemons = async (url: string) => {
       const pokemonTypes = types.map((type: any) => type.type.name);
       const pokemonStats = stats.map((singleStat: any) => {
         return {
-          stateName: singleStat.stat.name,
-          stateValue: singleStat.base_stat,
+          statName: singleStat.stat.name,
+          statValue: singleStat.base_stat,
         };
       });
       return {

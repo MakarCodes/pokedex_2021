@@ -3,13 +3,25 @@ interface IPokemonDetails extends IPokemon {
 }
 
 export interface IState {
-  pokemonDetails: IPokemonDetails | {};
+  pokemonDetails: IPokemonDetails;
   isLoading: boolean;
   error: boolean;
 }
 
 export const initialState = {
-  pokemonDetails: {},
+  pokemonDetails: {
+    id: 0,
+    name: '',
+    height: 0,
+    weight: 0,
+    types: [],
+    sprites: {
+      front_default: '',
+      back_default: '',
+    },
+    stats: [{ statName: '', statValue: 0 }],
+    description: '',
+  },
   isLoading: false,
   error: false,
 };

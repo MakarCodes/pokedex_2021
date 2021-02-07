@@ -20,7 +20,7 @@ const RouteModal: React.FC<React.ReactNode> = ({ children }) => {
 
   return (
     <div className={classes.Wrapper} onClick={closeModal}>
-      <span className={classes.Close} onClick={closeModal}>
+      {/* <span className={classes.Close} onClick={closeModal}>
         <svg
           className={classes.CloseIcon}
           fill='currentColor'
@@ -33,7 +33,7 @@ const RouteModal: React.FC<React.ReactNode> = ({ children }) => {
             clip-rule='evenodd'
           />
         </svg>
-      </span>
+      </span> */}
       {children}
     </div>
   );

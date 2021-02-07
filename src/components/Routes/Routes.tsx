@@ -1,4 +1,4 @@
-import { Route, Switch, useLocation, HashRouter } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { Location } from 'history';
 import BestPokemons from '../BestPokemons/BestPokemons';
 import Contact from '../Contact/Contact';
@@ -30,7 +30,7 @@ const Routes = () => {
           path='/:name'
           children={
             <RouteModal>
-              <PokemonDetails id={id} />
+              <PokemonDetails id_url={id} />
             </RouteModal>
           }
         />

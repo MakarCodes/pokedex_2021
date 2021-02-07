@@ -1,5 +1,10 @@
 //shared types and interfces
 
+interface IStats {
+  statName: string;
+  statValue: number;
+}
+
 interface IPokemon {
   id: number;
   name: string;
@@ -10,7 +15,7 @@ interface IPokemon {
     front_default: string;
     back_default: string;
   };
-  stats: Array<{ statName: string; statValue: number }>;
+  stats: Array<IStats>;
 }
 
 type AvailavlePokemonTypes =

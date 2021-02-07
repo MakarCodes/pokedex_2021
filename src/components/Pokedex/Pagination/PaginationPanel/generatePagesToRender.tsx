@@ -18,6 +18,7 @@ export const generatePagsToRender = (
         number={number}
         actualPageIdx={actualPageIdx}
         goToPage={goToPage}
+        key={number}
       />
     ));
   }

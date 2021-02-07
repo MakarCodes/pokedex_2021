@@ -15,6 +15,7 @@ import classes from './PokemonDetails.module.scss';
 
 import Skill from './Skill/Skill';
 import Spinner from '../../UI/Spinner/Spinner';
+import { useHistory } from 'react-router';
 
 const drawId = (id: number) => {
   if (id < 10) {
@@ -53,6 +54,7 @@ interface IProps {
 }
 
 const PokemonDetails: React.FC<IProps> = ({ id_url }) => {
+  const history = useHistory();
   const { state, fetchActions } = useContext(descriptionCtx);
   const { pokedexState } = useContext(pokedexCtx);
   // const { nameFromUrl } = useParams<{ [key: string]: string }>();
@@ -97,21 +99,19 @@ const PokemonDetails: React.FC<IProps> = ({ id_url }) => {
     if (state.error) console.log('Error while fetching - display alert');
   }, [state.error]);
 
+  const closeModal = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    e.stopPropagation();
+    history.goBack();
+  };
+
   return (
-    <div
-      className={classes.Wrapper}
-      onClick={e => {
-        e.stopPropagation();
-        console.log('click');
-      }}
-    >
+    <div className={classes.Wrapper} onClick={e => e.stopPropagation()}>
       <div className={classes.DetailsCard}>
         {state.isLoading ? (
           <Spinner />
         ) : (
           <>
-            {/* <i className={classes.closeIcon} onClick={this.props.closeModal}> */}
-            <i className={classes.closeIcon}>
+            <i className={classes.closeIcon} onClick={e => closeModal(e)}>
               <FontAwesomeIcon icon={faTimes} size='2x' />
             </i>
             <img src={state.pokemonDetails.sprites.front_default} alt='' />

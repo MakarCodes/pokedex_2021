@@ -26,24 +26,25 @@ const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
 
 const Pokedex = () => {
   const { pokedexState } = useContext(pokedexCtx);
+  const { pokemons } = pokedexState;
   const { types, handleTypeChange, resetTypes } = useTypeChanger();
 
   const [state, dispatch] = useReducer(filterReducer, initialState);
   const actions = actionsFactory(dispatch);
 
   useEffect(() => {
-    if (pokedexState.pokemons)
+    if (pokemons)
       dispatch({
         type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
         payload: {
-          pokemons: pokedexState.pokemons,
+          pokemons: pokemons,
         },
       });
-  }, [pokedexState.pokemons]);
+  }, [pokemons]);
 
   useEffect(() => {
-    actions.filterPokemons(pokedexState.pokemons, types);
-  }, [types]);
+    actions.filterPokemons(pokemons, types);
+  }, [types, pokemons]);
 
   return (
     <div className={classes.Wrapper}>

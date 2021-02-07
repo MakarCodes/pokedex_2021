@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/pokedex_2021/static/css/main.b87b278b.chunk.css",
+    "main.js": "/pokedex_2021/static/js/main.a2f12d20.chunk.js",
+    "main.js.map": "/pokedex_2021/static/js/main.a2f12d20.chunk.js.map",
+    "runtime-main.js": "/pokedex_2021/static/js/runtime-main.cf565f06.js",
+    "runtime-main.js.map": "/pokedex_2021/static/js/runtime-main.cf565f06.js.map",
+    "static/css/2.679831fc.chunk.css": "/pokedex_2021/static/css/2.679831fc.chunk.css",
+    "static/js/2.9bf88dfe.chunk.js": "/pokedex_2021/static/js/2.9bf88dfe.chunk.js",
+    "static/js/2.9bf88dfe.chunk.js.map": "/pokedex_2021/static/js/2.9bf88dfe.chunk.js.map",
+    "index.html": "/pokedex_2021/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/pokedex_2021/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.b87b278b.chunk.css.map": "/pokedex_2021/static/css/main.b87b278b.chunk.css.map",
+    "static/js/2.9bf88dfe.chunk.js.LICENSE.txt": "/pokedex_2021/static/js/2.9bf88dfe.chunk.js.LICENSE.txt",
+    "static/media/Pokemon-LOGO.5974b032.png": "/pokedex_2021/static/media/Pokemon-LOGO.5974b032.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cf565f06.js",
+    "static/css/2.679831fc.chunk.css",
+    "static/js/2.9bf88dfe.chunk.js",
+    "static/css/main.b87b278b.chunk.css",
+    "static/js/main.a2f12d20.chunk.js"
+  ]
+}

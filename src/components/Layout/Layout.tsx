@@ -15,7 +15,8 @@ const Layout: React.FC<React.ReactNode> = ({ children }) => {
     <div className={classes.Wrapper}>
       <Navbar setNavbarHeight={setNavbarHeight} />
       <div
-        style={{ minHeight: `${childrenHeight} px` }}
+        style={{ minHeight: `${childrenHeight}px` }}
+        // style={{ minHeight: `${window.innerHeight - 200}px` }}
         className={classes.InnerWrapper}
       >
         {children}

@@ -49,6 +49,9 @@ const generateSkills = (stats: IStats[]) =>
     />
   ));
 
+const findPokemonById = (id: string, pokemons: IPokemon[]) =>
+  pokemons.find(pokemon => pokemon.id === parseInt(id));
+
 interface IProps {
   id_url: string | null;
 }
@@ -76,9 +79,7 @@ const PokemonDetails: React.FC<IProps> = ({ id_url }) => {
     if (!id_url) {
       fetchActions.fetchDescriptionFail();
     } else {
-      const pokemon = pokedexState.pokemons.find(
-        pokemon => pokemon.id === parseInt(id_url)
-      );
+      const pokemon = findPokemonById(id_url, pokedexState.pokemons);
       const fetchDescription = async (pokemon: IPokemon) => {
         fetchActions.fetchDescriptionStart();
         try {

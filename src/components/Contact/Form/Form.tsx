@@ -88,11 +88,21 @@ const Form = () => {
         <SingleInput
           register={register}
           errors={errors}
+          name='birthDate'
+          type='date'
+          required={true}
+          label='Birth Date'
+          placeholder='dd.mm.rrrr'
+          maxDate={new Date().toISOString().substring(0, 10)}
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
           name='zipCode'
           type='text'
           required={true}
           label='ZIP Code'
-          placeholder='ZIP-code _ _ - _ _ _'
+          placeholder='_ _ - _ _ _'
         />
         <SelectInput
           data={cityData}

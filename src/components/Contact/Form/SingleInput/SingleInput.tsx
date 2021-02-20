@@ -1,6 +1,6 @@
 import classes from './SingleInput.module.scss';
 
-type availableInputTypes = 'text' | 'number';
+type availableInputTypes = 'text' | 'number' | 'date';
 
 interface IProps {
   name: string;
@@ -11,6 +11,7 @@ interface IProps {
   defaultValue?: string;
   required: boolean;
   label: string;
+  maxDate?: any;
 }
 
 const SingleInput: React.FC<IProps> = ({
@@ -22,6 +23,7 @@ const SingleInput: React.FC<IProps> = ({
   register,
   required,
   label,
+  maxDate,
 }) => {
   return (
     <div className={classes.InputGroup}>
@@ -35,6 +37,7 @@ const SingleInput: React.FC<IProps> = ({
         type={type}
         defaultValue={defaultValue ? defaultValue : ''}
         placeholder={placeholder ? placeholder : ''}
+        max={maxDate ? maxDate : null}
       />
       {errors[name] && (
         <p className={classes.ErrorField}>{errors[name]?.message}</p>

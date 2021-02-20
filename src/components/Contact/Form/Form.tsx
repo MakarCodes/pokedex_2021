@@ -86,7 +86,7 @@ const Form = () => {
           type='text'
           required={true}
           label='ZIP Code'
-          placeholder='ZIP-code...'
+          placeholder='ZIP-code _ _ - _ _ _'
         />
         <div className={classes.ButtonsContainer}>
           <button

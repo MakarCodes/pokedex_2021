@@ -3,7 +3,7 @@ import { Location } from 'history';
 import BestPokemons from '../BestPokemons/BestPokemons';
 import Contact from '../Contact/Contact';
 import Pokedex from '../Pokedex/Pokedex';
-import Purpose from '../Purpose/Purpose';
+import Gallery from '../Gallery/Gallery';
 import RouteModal from '../UI/RouteModal/RouteModal';
 import PokemonDetails from '../Pokedex/PokemonDetails/PokemonDetails';
 import { useQuery } from '../../customHooks/useQuery';
@@ -21,7 +21,7 @@ const Routes = () => {
     <>
       <Switch location={background || location}>
         <Route path='/contact' component={Contact} />
-        <Route path='/projectPurpose' component={Purpose} />
+        <Route path='/gallery' component={Gallery} />
         <Route path='/mybest' component={BestPokemons} />
         <Route exact path='/' component={Pokedex} />
       </Switch>

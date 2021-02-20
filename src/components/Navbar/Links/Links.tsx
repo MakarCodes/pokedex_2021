@@ -12,7 +12,7 @@ const Links: React.FC<IProps> = ({ isOpen }) => {
     >
       <SingleLink path='/' value='Pokedex' />
       <SingleLink path='/mybest' value='MyBest' />
-      <SingleLink path='/projectPurpose' value='ProjectPurpose' />
+      <SingleLink path='/gallery' value='Gallery' />
       <SingleLink path='/contact' value='Contact' />
     </div>
   );

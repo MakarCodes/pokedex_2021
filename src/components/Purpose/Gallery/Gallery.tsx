@@ -25,6 +25,7 @@ const Gallery = () => {
         <PhotoItem img={p8} gridClass={classes.p8} />
         <PhotoItem img={p9} gridClass={classes.p9} />
         <PhotoItem img={p10} gridClass={classes.p10} />
+        <PhotoItem img={p1} gridClass={classes.p11} />
       </div>
     </div>
   );

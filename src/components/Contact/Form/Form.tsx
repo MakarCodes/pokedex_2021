@@ -3,13 +3,22 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
 
 import classes from './Form.module.scss';
+
+import { cityData } from '../../../constans/constans';
+
 import SingleInput from './SingleInput/SingleInput';
 import SelectInput from './SelectInput/SelectInput';
-import { cityData } from '../../../constans/constans';
+import { postData } from '../../../requestMethods/postData';
 
 interface IDataFromForm {
   name: string;
+  lastName: string;
+  username: string;
   email: string;
+  pesel: number;
+  zipCode: string;
+  city: string;
+  birthDate: string;
 }
 
 const Form = () => {
@@ -25,10 +34,25 @@ const Form = () => {
     setValue('email', '');
     setValue('pesel', '');
     setValue('zipCode', '');
+    setValue('city', '');
+    setValue('birthDate', '');
   };
+
   const onSubmit = (data: IDataFromForm) => {
-    const { name, email } = data;
-    console.log(name, email);
+    const {
+      name,
+      lastName,
+      username,
+      email,
+      pesel,
+      zipCode,
+      city,
+      birthDate,
+    } = data;
+    postData('https://jsonplaceholder.typicode.com/posts/', data).then(() => {
+      console.log(data, 'Your data has been send successfully!');
+      alert('Your data has been send successfully!');
+    });
     resetForm();
   };
 

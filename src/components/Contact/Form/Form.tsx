@@ -18,7 +18,11 @@ const Form = () => {
 
   const resetForm = () => {
     setValue('name', '');
+    setValue('lastName', '');
+    setValue('username', '');
     setValue('email', '');
+    setValue('pesel', '');
+    setValue('zipCode', '');
   };
   const onSubmit = (data: IDataFromForm) => {
     const { name, email } = data;

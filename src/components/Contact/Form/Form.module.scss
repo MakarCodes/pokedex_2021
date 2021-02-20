@@ -28,7 +28,7 @@
   max-width: 800px;
   width: 98%;
   margin: 10px auto;
-  background-color: transparent;
+  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 13px 0px;
   padding: 30px;
   @media (min-width: '768px') {
@@ -40,10 +40,6 @@
 
 .ButtonsContainer {
   text-align: right;
-  margin-top: 20px;
-  @media (min-width: '768px') {
-    margin-top: 40px;
-  }
 }
 
 .Btn {
@@ -80,6 +76,6 @@
 
 .Cancel {
   background-color: transparent;
-  color: #dc3545;
-  border-color: #dc3545;
+  color: #f38181;
+  border-color: #f38181;
 }

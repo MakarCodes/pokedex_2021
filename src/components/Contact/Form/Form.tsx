@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './validationSchema';
 
 import classes from './Form.module.scss';
+import SingleInput from './SingleInput/SingleInput';
 
 interface IDataFromForm {
   name: string;
@@ -30,37 +31,63 @@ const Form = () => {
   };
 
   return (
-    <div className={classes.Wrapper}>
-      <h2 className={classes.Title}>Form</h2>
+    <>
+      <h2 className={classes.Title}>Contact Form</h2>
       <form className={classes.Form} onSubmit={handleSubmit(onSubmit)}>
-        <div className={classes.InputGroup}>
-          <label className={classes.LabelRequired}>Name:</label>
-          <input
-            className={classes.Input}
-            ref={register}
-            name='name'
-            type='text'
-            defaultValue=''
-            placeholder='User name...'
-          />
-          {errors.name && (
-            <p className={classes.ErrorField}>{errors.name?.message}</p>
-          )}
-        </div>
-        <div className={classes.InputGroup}>
-          <label className={classes.LabelRequired}>Email:</label>
-          <input
-            className={classes.Input}
-            ref={register}
-            name='email'
-            type='text'
-            defaultValue=''
-            placeholder='Email...'
-          />
-          {errors.email && (
-            <p className={classes.ErrorField}>{errors.email?.message}</p>
-          )}
-        </div>
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='name'
+          type='text'
+          required={true}
+          label='First name'
+          placeholder='First name...'
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='lastName'
+          type='text'
+          required={true}
+          label='Last name'
+          placeholder='Last name...'
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='username'
+          type='text'
+          required={true}
+          label='Username'
+          placeholder='Username...'
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='email'
+          type='text'
+          required={true}
+          label='Email'
+          placeholder='Email...'
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='pesel'
+          type='number'
+          required={true}
+          label='Pesel Number'
+          placeholder='Pesel...'
+        />
+        <SingleInput
+          register={register}
+          errors={errors}
+          name='zipCode'
+          type='text'
+          required={true}
+          label='ZIP Code'
+          placeholder='ZIP-code...'
+        />
         <div className={classes.ButtonsContainer}>
           <button
             type='button'
@@ -74,7 +101,7 @@ const Form = () => {
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import Form from './Form/Form';
+import classes from './Contact.module.scss';
 
 const Contact = () => {
   return (
-    <div>
+    <div className={classes.Wrapper}>
       <Form />
     </div>
   );

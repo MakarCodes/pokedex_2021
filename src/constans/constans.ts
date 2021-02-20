@@ -48,3 +48,5 @@ export const TYPE_COLORS: ITypes = {
   dragon: '#A886F9',
   dark: '#A89990',
 };
+
+export const cityData = ['Warszawa', 'Wrocław', 'Kraków', 'Poznań', 'Gdańsk'];

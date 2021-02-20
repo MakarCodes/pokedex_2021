@@ -4,6 +4,8 @@ import { schema } from './validationSchema';
 
 import classes from './Form.module.scss';
 import SingleInput from './SingleInput/SingleInput';
+import SelectInput from './SelectInput/SelectInput';
+import { cityData } from '../../../constans/constans';
 
 interface IDataFromForm {
   name: string;
@@ -91,6 +93,14 @@ const Form = () => {
           required={true}
           label='ZIP Code'
           placeholder='ZIP-code _ _ - _ _ _'
+        />
+        <SelectInput
+          data={cityData}
+          register={register}
+          name='city'
+          required={true}
+          label='City'
+          placeholder='City...'
         />
         <div className={classes.ButtonsContainer}>
           <button

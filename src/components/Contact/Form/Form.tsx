@@ -97,6 +97,7 @@ const Form = () => {
         <SelectInput
           data={cityData}
           register={register}
+          errors={errors}
           name='city'
           required={true}
           label='City'

@@ -33,4 +33,5 @@ export const schema = yup.object().shape({
     .required('This field is required')
     .matches(zipCodeRegExp, 'Invalid ZIP-code')
     .length(6, 'Invalid ZIP-code'),
+  city: yup.string().required('This field is required'),
 });

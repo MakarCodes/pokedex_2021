@@ -4,6 +4,7 @@ interface IProps {
   data: string[];
   name: string;
   register: any;
+  errors: any;
   required: boolean;
   label: string;
   placeholder?: string;
@@ -14,6 +15,7 @@ const SelectInput: React.FC<IProps> = ({
   data,
   name,
   register,
+  errors,
   required,
   label,
   placeholder,
@@ -38,6 +40,9 @@ const SelectInput: React.FC<IProps> = ({
           </option>
         ))}
       </select>
+      {errors[name] && (
+        <p className={classes.ErrorField}>{errors[name]?.message}</p>
+      )}
     </div>
   );
 };

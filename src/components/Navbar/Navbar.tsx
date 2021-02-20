@@ -25,7 +25,7 @@ const Navbar: React.FC<IProps> = ({ setNavbarHeight }) => {
   return (
     <div className={classes.Wrapper} ref={targetRef}>
       <Logo />
-      <Links isOpen={isOpen} />
+      <Links isOpen={isOpen} toggle={toggle} />
       <Hamburger isOpen={isOpen} toggle={toggle} />
     </div>
   );

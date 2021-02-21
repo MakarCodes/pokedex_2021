@@ -41,3 +41,14 @@ type AvailavlePokemonTypes =
 interface ITypes {
   [key: string]: string;
 }
+
+interface IDataFromForm {
+  name: string;
+  lastName: string;
+  username: string;
+  email: string;
+  pesel: number;
+  zipCode: string;
+  city: string;
+  birthDate: string;
+}

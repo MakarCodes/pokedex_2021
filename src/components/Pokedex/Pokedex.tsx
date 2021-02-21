@@ -22,6 +22,13 @@ const actionsFactory = (dispatch: React.Dispatch<Actions>) => ({
         types,
       },
     }),
+  setPokemonsToDisplay: (pokemons: IPokemon[]) =>
+    dispatch({
+      type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
+      payload: {
+        pokemons: pokemons,
+      },
+    }),
 });
 
 const Pokedex = () => {
@@ -34,12 +41,13 @@ const Pokedex = () => {
 
   useEffect(() => {
     if (pokemons)
-      dispatch({
-        type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
-        payload: {
-          pokemons: pokemons,
-        },
-      });
+      // dispatch({
+      //   type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
+      //   payload: {
+      //     pokemons: pokemons,
+      //   },
+      // });
+      actions.setPokemonsToDisplay(pokemons);
   }, [pokemons]);
 
   useEffect(() => {

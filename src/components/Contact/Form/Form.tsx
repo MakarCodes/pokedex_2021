@@ -21,7 +21,11 @@ interface IDataFromForm {
   birthDate: string;
 }
 
-const Form = () => {
+interface IProps {
+  onSuccessPostRequest: (data: IDataFromForm) => void;
+}
+
+const Form: React.FC<IProps> = ({ onSuccessPostRequest }) => {
   const { register, handleSubmit, errors, setValue } = useForm({
     resolver: yupResolver(schema),
     mode: 'all',
@@ -39,19 +43,9 @@ const Form = () => {
   };
 
   const onSubmit = (data: IDataFromForm) => {
-    const {
-      name,
-      lastName,
-      username,
-      email,
-      pesel,
-      zipCode,
-      city,
-      birthDate,
-    } = data;
     postData('https://jsonplaceholder.typicode.com/posts/', data).then(() => {
       console.log(data, 'Your data has been send successfully!');
-      alert('Your data has been send successfully!');
+      onSuccessPostRequest(data);
     });
     resetForm();
   };

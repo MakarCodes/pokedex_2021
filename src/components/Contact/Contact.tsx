@@ -41,15 +41,19 @@ const Contact = () => {
     <div className={classes.Wrapper}>
       <Form onSuccessPostRequest={onSuccessPostRequest} />
       <Modal isVisible={isVisible} toggleVisibility={toggleVisibility}>
-        <p>Your data has been send successfully!</p>
-        <p>Name: {name}</p>
-        <p>Surname: {lastName}</p>
-        <p>Username: {username}</p>
-        <p>Email: {email}</p>
-        <p>Pesel: {pesel}</p>
-        <p>Birth date: {birthDate}</p>
-        <p>ZIP code: {zipCode}</p>
-        <p>City: {city}</p>
+        <div className={classes.ModalContentWrapper}>
+          <p className={classes.ModalContentTitle}>
+            Your data has been send successfully!
+          </p>
+          <p className={classes.ModalContentData}>Name: {name}</p>
+          <p className={classes.ModalContentData}>Surname: {lastName}</p>
+          <p className={classes.ModalContentData}>Username: {username}</p>
+          <p className={classes.ModalContentData}>Email: {email}</p>
+          <p className={classes.ModalContentData}>Pesel: {pesel}</p>
+          <p className={classes.ModalContentData}>Birth date: {birthDate}</p>
+          <p className={classes.ModalContentData}>ZIP code: {zipCode}</p>
+          <p className={classes.ModalContentData}>City: {city}</p>
+        </div>
       </Modal>
     </div>
   );

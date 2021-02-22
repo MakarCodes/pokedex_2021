@@ -1,24 +1,34 @@
 {
   "files": {
-    "main.css": "/pokedex_2021/static/css/main.d531b9c5.chunk.css",
-    "main.js": "/pokedex_2021/static/js/main.29016669.chunk.js",
-    "main.js.map": "/pokedex_2021/static/js/main.29016669.chunk.js.map",
+    "main.css": "/pokedex_2021/static/css/main.74495e79.chunk.css",
+    "main.js": "/pokedex_2021/static/js/main.0644e9c4.chunk.js",
+    "main.js.map": "/pokedex_2021/static/js/main.0644e9c4.chunk.js.map",
     "runtime-main.js": "/pokedex_2021/static/js/runtime-main.cf565f06.js",
     "runtime-main.js.map": "/pokedex_2021/static/js/runtime-main.cf565f06.js.map",
     "static/css/2.679831fc.chunk.css": "/pokedex_2021/static/css/2.679831fc.chunk.css",
-    "static/js/2.a9e7e4ef.chunk.js": "/pokedex_2021/static/js/2.a9e7e4ef.chunk.js",
-    "static/js/2.a9e7e4ef.chunk.js.map": "/pokedex_2021/static/js/2.a9e7e4ef.chunk.js.map",
+    "static/js/2.d011f0b9.chunk.js": "/pokedex_2021/static/js/2.d011f0b9.chunk.js",
+    "static/js/2.d011f0b9.chunk.js.map": "/pokedex_2021/static/js/2.d011f0b9.chunk.js.map",
     "index.html": "/pokedex_2021/index.html",
     "static/css/2.679831fc.chunk.css.map": "/pokedex_2021/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.d531b9c5.chunk.css.map": "/pokedex_2021/static/css/main.d531b9c5.chunk.css.map",
-    "static/js/2.a9e7e4ef.chunk.js.LICENSE.txt": "/pokedex_2021/static/js/2.a9e7e4ef.chunk.js.LICENSE.txt",
-    "static/media/Pokemon-LOGO.5974b032.png": "/pokedex_2021/static/media/Pokemon-LOGO.5974b032.png"
+    "static/css/main.74495e79.chunk.css.map": "/pokedex_2021/static/css/main.74495e79.chunk.css.map",
+    "static/js/2.d011f0b9.chunk.js.LICENSE.txt": "/pokedex_2021/static/js/2.d011f0b9.chunk.js.LICENSE.txt",
+    "static/media/Pokemon-LOGO.5974b032.png": "/pokedex_2021/static/media/Pokemon-LOGO.5974b032.png",
+    "static/media/pokemon_1.91a9decf.jpg": "/pokedex_2021/static/media/pokemon_1.91a9decf.jpg",
+    "static/media/pokemon_10.149959c1.jpg": "/pokedex_2021/static/media/pokemon_10.149959c1.jpg",
+    "static/media/pokemon_2.2f208ef9.jpg": "/pokedex_2021/static/media/pokemon_2.2f208ef9.jpg",
+    "static/media/pokemon_3.ac043cae.jpg": "/pokedex_2021/static/media/pokemon_3.ac043cae.jpg",
+    "static/media/pokemon_4.1e80cc36.jpg": "/pokedex_2021/static/media/pokemon_4.1e80cc36.jpg",
+    "static/media/pokemon_5.505d30b8.jpg": "/pokedex_2021/static/media/pokemon_5.505d30b8.jpg",
+    "static/media/pokemon_6.c4903139.jpg": "/pokedex_2021/static/media/pokemon_6.c4903139.jpg",
+    "static/media/pokemon_7.520c1cc6.jpg": "/pokedex_2021/static/media/pokemon_7.520c1cc6.jpg",
+    "static/media/pokemon_8.77e39d01.jpg": "/pokedex_2021/static/media/pokemon_8.77e39d01.jpg",
+    "static/media/pokemon_9.1bea1e86.jpg": "/pokedex_2021/static/media/pokemon_9.1bea1e86.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.cf565f06.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.a9e7e4ef.chunk.js",
-    "static/css/main.d531b9c5.chunk.css",
-    "static/js/main.29016669.chunk.js"
+    "static/js/2.d011f0b9.chunk.js",
+    "static/css/main.74495e79.chunk.css",
+    "static/js/main.0644e9c4.chunk.js"
   ]
 }

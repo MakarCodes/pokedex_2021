@@ -40,14 +40,13 @@ const Pokedex = () => {
   const actions = actionsFactory(dispatch);
 
   useEffect(() => {
-    if (pokemons)
-      // dispatch({
-      //   type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
-      //   payload: {
-      //     pokemons: pokemons,
-      //   },
-      // });
-      actions.setPokemonsToDisplay(pokemons);
+    if (pokemons) actions.setPokemonsToDisplay(pokemons);
+    // dispatch({
+    //   type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
+    //   payload: {
+    //     pokemons: pokemons,
+    //   },
+    // });
   }, [pokemons]);
 
   useEffect(() => {

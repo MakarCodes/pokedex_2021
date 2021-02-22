@@ -1,3 +1,5 @@
+import promiseIgnoreErrors from '../../../helpers/promiseIgnoreErrors';
+
 interface IWithUrl {
   url: string;
 }
@@ -5,6 +7,7 @@ interface IWithUrl {
 const getPokemons = async (url: string) => {
   const response = await fetch(url);
   const data = await response.json();
+
   const pokemons: IPokemon[] = await Promise.all(
     data.results.map(async <T extends IWithUrl>(result: T) => {
       let url = result.url;

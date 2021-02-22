@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 
+const strinRegex = /^[a-zA-Z\s'-]+$/;
 const zipCodeRegExp = /[0-9]{2}\-[0-9]{3}/;
 const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -7,19 +8,24 @@ export const schema = yup.object().shape({
   name: yup
     .string()
     .required('This field is required')
-    .min(3, 'Minimum 3 letters'),
+    .min(3, 'Minimum 3 letters')
+    .max(255, 'Maximum 255 letters')
+    .matches(strinRegex, 'Invalid name'),
   lastName: yup
     .string()
     .required('This field is required')
-    .min(3, 'Minimum 3 letters'),
+    .min(3, 'Minimum 3 letters')
+    .max(255, 'Maximum 255 letters')
+    .matches(strinRegex, 'Invalid surname'),
   username: yup
     .string()
     .required('This field is required')
-    .min(3, 'Minimum 3 letters'),
+    .min(3, 'Minimum 3 letters')
+    .max(255, 'Maximum 255 letters'),
   email: yup
     .string()
-    .required('This field is required')
-    .matches(emailRegExp, 'Invalid email address'),
+    .email('Invalid email address')
+    .required('This field is required'),
   pesel: yup
     .number()
     .required('This field is required')

@@ -41,12 +41,6 @@ const Pokedex = () => {
 
   useEffect(() => {
     if (pokemons) actions.setPokemonsToDisplay(pokemons);
-    // dispatch({
-    //   type: ActionTypes.SET_POKEMONS_TO_DISPLAY,
-    //   payload: {
-    //     pokemons: pokemons,
-    //   },
-    // });
   }, [pokemons]);
 
   useEffect(() => {
@@ -60,6 +54,12 @@ const Pokedex = () => {
         handleTypeChange={handleTypeChange}
         resetTypes={resetTypes}
       />
+      {pokedexState.error && (
+        <p className={classes.Error}>
+          Sorry an ERROR has occured, data couldn't be loaded - please try later
+          or check your url
+        </p>
+      )}
       {!pokedexState.isLoading ? (
         <Pokemons pokemonsToDisplay={state.pokemonsToDisplay} types={types} />
       ) : (

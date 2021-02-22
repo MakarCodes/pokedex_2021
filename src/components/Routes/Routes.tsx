@@ -7,6 +7,7 @@ import Gallery from '../Gallery/Gallery';
 import RouteModal from '../UI/RouteModal/RouteModal';
 import PokemonDetails from '../Pokedex/PokemonDetails/PokemonDetails';
 import { useQuery } from '../../customHooks/useQuery';
+import Page404 from '../Page404/Page404';
 
 interface ILocationState {
   pathname: string;
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path='/gallery' component={Gallery} />
         <Route path='/mybest' component={BestPokemons} />
         <Route exact path='/' component={Pokedex} />
+        <Route component={Page404} />
       </Switch>
       {background && (
         <Route

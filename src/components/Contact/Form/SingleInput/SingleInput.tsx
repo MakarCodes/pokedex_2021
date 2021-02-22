@@ -1,6 +1,6 @@
 import classes from './SingleInput.module.scss';
 
-type availableInputTypes = 'text' | 'number' | 'date';
+type availableInputTypes = 'text' | 'number' | 'date' | 'checkbox';
 
 interface IProps {
   name: string;

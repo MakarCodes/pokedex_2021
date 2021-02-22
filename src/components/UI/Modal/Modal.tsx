@@ -17,11 +17,14 @@ interface IProps {
 }
 
 const Modal: React.FC<IProps> = ({ isVisible, toggleVisibility, children }) => {
-  const handleEscape = useCallback(event => {
-    if (event.keyCode === 27) {
-      toggleVisibility();
-    }
-  }, []);
+  const handleEscape = useCallback(
+    event => {
+      if (event.keyCode === 27) {
+        toggleVisibility();
+      }
+    },
+    [toggleVisibility]
+  );
 
   useEffect(() => {
     if (isVisible) document.addEventListener('keydown', handleEscape, false);

@@ -12,4 +12,5 @@ export const postData = async (url: string, data: IData) => {
   });
 
   const dataFromResponse = await response.json();
+  return dataFromResponse;
 };

@@ -1,5 +1,3 @@
-import promiseIgnoreErrors from '../../../helpers/promiseIgnoreErrors';
-
 interface IWithUrl {
   url: string;
 }
@@ -13,7 +11,7 @@ const getPokemons = async (url: string) => {
       let url = result.url;
       // unexpected problem in API - temporary fix solution to make app works
       if (url === 'https://pokeapi.co/api/v2/pokemon/212/') {
-        console.log('url', url);
+        // console.log('url', url);
         url = 'https://pokeapi.co/api/v2/pokemon/213/';
       }
       const response = await fetch(url);

@@ -8,6 +8,7 @@ import { cityData } from '../../../constans/constans';
 
 import SingleInput from './SingleInput/SingleInput';
 import SelectInput from './SelectInput/SelectInput';
+import CheckboxInput from './CheckboxInput/CheckboxInput';
 import { postData } from '../../../requestMethods/postData';
 
 interface IDataFromForm {
@@ -40,6 +41,7 @@ const Form: React.FC<IProps> = ({ onSuccessPostRequest }) => {
     setValue('zipCode', '');
     setValue('city', '');
     setValue('birthDate', '');
+    setValue('agree', '');
   };
 
   const onSubmit = (data: IDataFromForm) => {
@@ -131,6 +133,14 @@ const Form: React.FC<IProps> = ({ onSuccessPostRequest }) => {
           label='City'
           placeholder='City...'
         />
+        <CheckboxInput
+          register={register}
+          errors={errors}
+          name='agree'
+          type='checkbox'
+          required={true}
+        />
+
         <div className={classes.ButtonsContainer}>
           <button
             type='button'

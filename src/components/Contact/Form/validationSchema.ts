@@ -1,8 +1,7 @@
 import * as yup from 'yup';
 
 const strinRegex = /^[a-zA-Z\s'-]+$/;
-const zipCodeRegExp = /[0-9]{2}\-[0-9]{3}/;
-const emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const zipCodeRegExp = /[0-9]{2}-[0-9]{3}/;
 
 export const schema = yup.object().shape({
   name: yup
@@ -41,4 +40,8 @@ export const schema = yup.object().shape({
     .length(6, 'Invalid ZIP-code'),
   city: yup.string().required('This field is required'),
   birthDate: yup.string().required('This field is required'),
+  agree: yup
+    .bool()
+    .required('The terms and conditions must be accepted.')
+    .oneOf([true], 'Accept Terms & Conditions is required'),
 });

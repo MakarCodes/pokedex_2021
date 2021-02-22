@@ -8,7 +8,7 @@ interface IProps {
 const PhotoItem: React.FC<IProps> = ({ img, gridClass }) => {
   return (
     <div className={`${classes.Center} ${gridClass}`}>
-      <img className={classes.ResponsiveImage} src={img} />
+      <img className={classes.ResponsiveImage} src={img} alt='random pokemon' />
     </div>
   );
 };

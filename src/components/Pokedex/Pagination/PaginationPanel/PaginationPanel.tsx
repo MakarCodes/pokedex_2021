@@ -33,20 +33,25 @@ const PaginationPanel: React.FC<IProps> = ({
   return (
     <div className={styles.PaginationWrapper}>
       <div className={styles.ButtonsContainer}>
-        <PaginateActionBtn actionName='FIRST PAGE' actionFn={goToFirstPage} />
         <PaginateActionBtn
-          actionFn={goToPreviousPage}
-          data-testid='goToPrevPage'
-        >
+          actionName='FIRST PAGE'
+          actionFn={goToFirstPage}
+          testID='firstPage'
+        />
+        <PaginateActionBtn actionFn={goToPreviousPage} testID='goToPrevPage'>
           <span className={`${styles.Chevron} ${styles.ChevronLeft}`}></span>
         </PaginateActionBtn>
-        <div data-testid='goToPageButtons' style={{ display: 'flex' }}>
+        <div dat-testid='goToPageButtons' style={{ display: 'flex' }}>
           {pagesToRender}
         </div>
-        <PaginateActionBtn actionFn={goToNextPage} data-testid='goToNextPage'>
+        <PaginateActionBtn actionFn={goToNextPage} testID='goToNextPage'>
           <span className={`${styles.Chevron} ${styles.ChevronRight}`}></span>
         </PaginateActionBtn>
-        <PaginateActionBtn actionName='LAST PAGE' actionFn={goToLastPage} />
+        <PaginateActionBtn
+          actionName='LAST PAGE'
+          actionFn={goToLastPage}
+          testID='lastPage'
+        />
       </div>
     </div>
   );

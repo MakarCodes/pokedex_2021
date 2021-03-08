@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import Layout from './components/Layout/Layout';
 import Routes from './components/Routes/Routes';
 import { URL_ALL_POKEMONS } from './constans/constans';

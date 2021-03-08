@@ -19,7 +19,7 @@ const Pokemons: React.FC<IProps> = ({ pokemonsToDisplay, types }) => {
   }, [types]);
   return (
     <>
-      <div className={classes.Container}>
+      <div className={classes.Container} data-testid='pokemonCardContainer'>
         {paginationState.entriesOnSelectedPage
           .slice(0, 20)
           .map((pokemon, idx) => (
